@@ -76,6 +76,10 @@ class ObjectManagedPool {
     }
 };
 
+// create a shortcut to the better (according to benchmarks) class
+template<typename T>
+using ObjectPool = ObjectPointerPool<T>;
+
 }  // namespace POOL
 
 #endif  // OBJECT_POOL_HPP
