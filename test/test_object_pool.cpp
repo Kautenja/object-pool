@@ -6,9 +6,46 @@
 #include "object_pool.hpp"
 
 //
-// MARK: constructor
+// MARK: ObjectPointerPool::ObjectPointerPool
 //
 
-TEST_CASE("initialize object pool with default constructor") {
-    REQUIRE_NOTHROW(new OBJP::ObjectPool<double>);
+TEST_CASE("initialize ObjectPointerPool with default constructor") {
+    REQUIRE_NOTHROW(new POOL::ObjectPointerPool<double>);
+}
+
+
+//
+// MARK: ObjectPointerPool::get, ObjectPointerPool::put
+//
+
+TEST_CASE("operate an ObjectPointerPool of doubles") {
+    auto pool = POOL::ObjectPointerPool<double>();
+    double* number = pool.get();
+    REQUIRE(*number == 0);
+    *number = 5;
+    pool.put(number);
+    REQUIRE(*pool.get() == 5);
+}
+
+
+//
+// MARK: ObjectPool::ObjectPool
+//
+
+TEST_CASE("initialize ObjectPool with default constructor") {
+    REQUIRE_NOTHROW(new POOL::ObjectPool<double>);
+}
+
+
+//
+// MARK: ObjectPool::get, ObjectPool::put
+//
+
+TEST_CASE("operate an ObjectPool of doubles") {
+    auto pool = POOL::ObjectPool<double>();
+    double* number = pool.get();
+    REQUIRE(*number == 0);
+    *number = 5;
+    pool.put(number);
+    REQUIRE(*pool.get() == 5);
 }
