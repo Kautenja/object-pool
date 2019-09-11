@@ -12,19 +12,19 @@ your C++ project either by copying directly or using git submodules.
 
 ## Classes
 
-There are two working implementations of the object pool, (1) the 
-object manged pool that stores objects on the stack using a vector, 
-and (2) the object pointer pool that stores objects dynamically in 
+There are two working implementations of the object pool, (1) the
+object manged pool that stores objects on the stack using a vector,
+and (2) the object pointer pool that stores objects dynamically in
 memory. [benchmark/benchmark.cpp](benchmark/benchmark.cpp) contains
-code to benchmark the objects (using doubles as the templated 
+code to benchmark the objects (using doubles as the templated
 object type).
 
 | Class               | Object location   | `get` & `put` time |
 |:--------------------|:------------------|:-------------------|
-| `ObjectManagedPool` | Stack             | TODO               |
-| `ObjectPointerPool` | Heap              | TODO               |
+| `ObjectManagedPool` | Stack             | 194_ns_ (267_ns_ std.)
+| `ObjectPointerPool` | Heap              | 47_ns_ (2_ns_ std.)
 
-The `ObjectPool` class defaults to the faster (and simpler) 
+The `ObjectPool` class defaults to the faster (and simpler)
 `ObjectPointerPool` class.
 
 ## Testing
