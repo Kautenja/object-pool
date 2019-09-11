@@ -66,18 +66,18 @@ TEST_CASE("POOL::ObjectPointerPool* put") {
 }
 
 //
-// MARK: ObjectPool stack
+// MARK: ObjectManagedPool stack
 //
 
-TEST_CASE("POOL::ObjectPool get") {
-    auto pool = POOL::ObjectPool<double>();
+TEST_CASE("POOL::ObjectManagedPool get") {
+    auto pool = POOL::ObjectManagedPool<double>();
     BENCHMARK("get") {
         pool.get();
     };
 }
 
-TEST_CASE("POOL::ObjectPool put") {
-    auto pool = POOL::ObjectPool<double>();
+TEST_CASE("POOL::ObjectManagedPool put") {
+    auto pool = POOL::ObjectManagedPool<double>();
     auto generator = std::default_random_engine();
     auto bool_dist = std::uniform_int_distribution<int>(0, 1);
     std::vector<double*> used;
@@ -94,18 +94,18 @@ TEST_CASE("POOL::ObjectPool put") {
 }
 
 //
-// MARK: ObjectPool heap
+// MARK: ObjectManagedPool heap
 //
 
-TEST_CASE("POOL::ObjectPool* get") {
-    auto pool = new POOL::ObjectPool<double>();
+TEST_CASE("POOL::ObjectManagedPool* get") {
+    auto pool = new POOL::ObjectManagedPool<double>();
     BENCHMARK("get") {
         pool->get();
     };
 }
 
-TEST_CASE("POOL::ObjectPool* put") {
-    auto pool = new POOL::ObjectPool<double>();
+TEST_CASE("POOL::ObjectManagedPool* put") {
+    auto pool = new POOL::ObjectManagedPool<double>();
     auto generator = std::default_random_engine();
     auto bool_dist = std::uniform_int_distribution<int>(0, 1);
     std::vector<double*> used;

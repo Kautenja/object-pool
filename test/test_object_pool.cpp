@@ -29,20 +29,20 @@ TEST_CASE("operate an ObjectPointerPool of doubles") {
 
 
 //
-// MARK: ObjectPool::ObjectPool
+// MARK: ObjectManagedPool::ObjectManagedPool
 //
 
-TEST_CASE("initialize ObjectPool with default constructor") {
-    REQUIRE_NOTHROW(new POOL::ObjectPool<double>);
+TEST_CASE("initialize ObjectManagedPool with default constructor") {
+    REQUIRE_NOTHROW(new POOL::ObjectManagedPool<double>);
 }
 
 
 //
-// MARK: ObjectPool::get, ObjectPool::put
+// MARK: ObjectManagedPool::get, ObjectManagedPool::put
 //
 
-TEST_CASE("operate an ObjectPool of doubles") {
-    auto pool = POOL::ObjectPool<double>();
+TEST_CASE("operate an ObjectManagedPool of doubles") {
+    auto pool = POOL::ObjectManagedPool<double>();
     double* number = pool.get();
     REQUIRE(*number == 0);
     *number = 5;

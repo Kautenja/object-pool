@@ -37,7 +37,7 @@ class ObjectPointerPool {
 
 /// An object pool for arbitrary typed objects
 template<typename T>
-class ObjectPool {
+class ObjectManagedPool {
  private:
     /// the objects in the pool
     std::list<T> objs;
@@ -48,7 +48,7 @@ class ObjectPool {
 
  public:
     /// initialize a new object pool.
-    ObjectPool() : free(), used() { }
+    ObjectManagedPool() : free(), used() { }
 
     /// Return an object from the pool.
     T* get() {
