@@ -5,27 +5,26 @@
 [build-status]: https://travis-ci.com/Kautenja/object-pool.svg
 [build-server]: https://travis-ci.com/Kautenja/object-pool
 
-# Usage
+## Usage
 
-Simply add [include/object_pool.hpp](include/object_pool.hpp) to
-your C++ project either by copying directly or using git submodules.
+Simply add [include/object_pool.hpp](include/object_pool.hpp) to your C++
+project either by copying directly or using git submodules.
 
 ## Classes
 
-There are two working implementations of the object pool, (1) the
-object manged pool that stores objects on the stack using a vector,
-and (2) the object pointer pool that stores objects dynamically in
-memory. [benchmark/benchmark.cpp](benchmark/benchmark.cpp) contains
-code to benchmark the objects (using doubles as the templated
-object type).
+There are two working implementations of the object pool, (1) the object
+managed pool that stores objects on the stack using a vector, and (2) the
+object pointer pool that stores objects dynamically in memory.
+[benchmark/benchmark.cpp](benchmark/benchmark.cpp) contains code to benchmark
+the objects (using doubles as the template object type).
 
-| Class               | Object location   | `get` & `put` time |
-|:--------------------|:------------------|:-------------------|
+| Class               | Object location   | `get` & `put` avg. time |
+|:--------------------|:------------------|:------------------------|
 | `ObjectManagedPool` | Stack             | 194_ns_ (267_ns_ std.)
 | `ObjectPointerPool` | Heap              | 47_ns_ (2_ns_ std.)
 
-The `ObjectPool` class defaults to the faster (and simpler)
-`ObjectPointerPool` class.
+The `ObjectPool` class defaults to the faster (and simpler) `ObjectPointerPool`
+class.
 
 ## Testing
 
